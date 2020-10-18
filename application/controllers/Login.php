@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-// require_once("application/core/AUTH_Controller.php");
 class Login extends CI_Controller {
 
 	/**
@@ -51,9 +50,7 @@ class Login extends CI_Controller {
 				];
 				$this->session->set_userdata($session);
 				redirect('Dashboard');
-
 			}
-		
 		} else {
 			$this->session->set_flashdata('error_msg', 'Username dan Password Tidak Boleh Kosong');
 			redirect('Login');

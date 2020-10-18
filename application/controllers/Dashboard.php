@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once("application/core/AUTH_Controller.php");
 class Dashboard extends AUTH_Controller {
 
 	/**

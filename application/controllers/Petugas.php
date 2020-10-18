@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once("application/core/AUTH_Controller.php");
 class Petugas extends AUTH_Controller {
 
 	/**
@@ -31,10 +30,8 @@ class Petugas extends AUTH_Controller {
 		$this->load->view('petugas', $data);
 	}
 
-	public function hapus($id){
-		$data['userdata'] 		= $this->userdata;		
-		
-		$result = $this->M_petugas->delete($id);
+	public function hapus($id_petugas){		
+		$result = $this->M_petugas->delete($id_petugas);
 		
 		if ($result > 0) {
 			$this->session->set_flashdata('msg', show_succ_msg('Petugas Berhasil dihapus'));
@@ -43,14 +40,10 @@ class Petugas extends AUTH_Controller {
 		}
 
 		redirect('Petugas');
-		
 	}
 
 	public function tambah(){
 		$data["userdata"]	 = $this->userdata;
-
-		// $data['dataPenduduk'] =$this->M_penduduk->select_all_penduduk();
-
 		$this->load->view('form_tambah_petugas', $data);
 	}
 
@@ -88,11 +81,9 @@ class Petugas extends AUTH_Controller {
 		
 	}	
 
-	public function reset_password($id){
-		$data['userdata'] 		= $this->userdata;		
-		
-		$password = md5($this->M_petugas->select_nik_petugas($id)->NIK);
-		$result = $this->M_petugas->reset($id, $password);
+	public function reset_password($id_petugas){		
+		$password = md5($this->M_petugas->select_nik_petugas($id_petugas)->NIK);
+		$result = $this->M_petugas->reset($id_petugas, $password);
 		
 		if ($result > 0) {
 			$this->updateProfil();
@@ -102,13 +93,12 @@ class Petugas extends AUTH_Controller {
 		}
 
 		redirect('Petugas');
-		
 	}
 
-	public function edit($id){
+	public function edit($id_petugas){
 		$data["userdata"]	 = $this->userdata;
 
-		$data['dataPetugas'] =$this->M_petugas->select_by_id($id);
+		$data['dataPetugas'] =$this->M_petugas->select_by_id($id_petugas);
 
 		$this->load->view('form_edit_petugas', $data);
 	}

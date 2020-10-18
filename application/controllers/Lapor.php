@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Lapor extends CI_Controller {
 
 	/**
@@ -88,13 +87,11 @@ class Lapor extends CI_Controller {
    		$data = $this->input->post();
 
    		$result = $this->M_lapor->lapor($data);
+   		$data['hasil'] ="Gagal";
    		if ($result > 0) {
 			$data['hasil'] ="Berhasil";
-			$this->load->view('lapor_done', $data);
-		} else {
-			$data['hasil'] ="Gagal";
-			$this->load->view('lapor_done', $data);
 		}
+		$this->load->view('lapor_done', $data);
    }
 
 }
