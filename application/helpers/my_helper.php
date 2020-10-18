@@ -62,7 +62,7 @@
 		}
 	}
 
-	function show_my_confirm($id_confirm='', $class='', $title='Konfirmasi', $yes = 'Ya', $no = 'Tidak') {
+	function show_my_confirm($id_confirm='', $class='', $title='Konfirmasi', $yes = 'Ya', $not = 'Tidak') {
 		$_ci = &get_instance();
 
 		if ($id_confirm != '') {
@@ -76,7 +76,7 @@
 						        <button class="form-control btn btn-primary ' .esc_attr($class) .'"> <i class="glyphicon glyphicon-ok-sign"></i> ' .esc_html($yes) .'</button>
 						      </div>
 						      <div class="col-md-6">
-						        <button class="form-control btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> ' .esc_html($no) .'</button>
+						        <button class="form-control btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> ' .esc_html($not) .'</button>
 						      </div>
 						    </div>
 					    </div>
@@ -89,7 +89,7 @@
 		$_ci = &get_instance();
 
 		if ($id_alert != '') {
-			echo   '<div class="modal fade" id="' .$id_alert .'" role="dialog">
+			echo   '<div class="modal fade" id="' .esc_attr($id_alert) .'" role="dialog">
 					  <div class="modal-dialog modal-md" role="document">
 					    <div class="modal-content">
 					        <div class="col-md-offset-1 col-md-10 col-md-offset-1 well">
