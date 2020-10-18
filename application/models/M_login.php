@@ -13,11 +13,7 @@ class M_login extends CI_Model {
 
 		if ($data->num_rows() == 1) {
 			return $data->row();
-		} else {
-			return false;
 		}
+		return false;
 	}
 }
-
-/* End of file M_admin.php */
-/* Location: ./application/models/M_admin.php */

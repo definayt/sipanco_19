@@ -94,14 +94,12 @@ class M_lapor extends CI_Model {
   public function lapor($data){
   	$sql = "SELECT nama from penduduk where NIK = ".$data["NIK"];
 	$nama = $this->db->query($sql);
-  	// if($data['status'] == '0'){
-		if($nama->num_rows()==0){
-			$data['status']="2";
-		}else{
-			$data['status']="1";
-			$data['nama']="";
-		}
-  	// }
+	if($nama->num_rows()==0){
+		$data['status']="2";
+	}else{
+		$data['status']="1";
+		$data['nama']="";
+	}
 
   	if($data['nama'] == ""){
   		$sql = "SELECT nama from penduduk where NIK = ".$data["NIK"];
@@ -151,8 +149,8 @@ class M_lapor extends CI_Model {
 
 	}
 
-	public function delete($id){
-		$sql = "DELETE FROM pelaporan WHERE id_pelaporan = '".$id."'";
+	public function delete($id_pelaporan){
+		$sql = "DELETE FROM pelaporan WHERE id_pelaporan = '".$id_pelaporan."'";
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();

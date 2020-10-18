@@ -9,15 +9,15 @@ class M_petugas extends CI_Model {
 		return $data->result();
 	}
 
-	public function select_by_id($id){
-		$sql = "SELECT * FROM petugas JOIN penduduk WHERE petugas.NIK=penduduk.NIK AND  id = '".$id."'";
+	public function select_by_id($id_petugas){
+		$sql = "SELECT * FROM petugas JOIN penduduk WHERE petugas.NIK=penduduk.NIK AND  id = '".$id_petugas."'";
 		$data = $this->db->query($sql); 
 
 		return $data->row();
 	}
 
-	public function delete($id){
-		$sql = "DELETE FROM petugas WHERE id = '".$id."'";
+	public function delete($id_petugas){
+		$sql = "DELETE FROM petugas WHERE id = '".$id_petugas."'";
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
@@ -30,8 +30,8 @@ class M_petugas extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
-	public function select_nik_petugas($id){
-		$sql = "SELECT NIK FROM petugas  WHERE  id = '".$id."'";
+	public function select_nik_petugas($id_petugas){
+		$sql = "SELECT NIK FROM petugas  WHERE  id = '".$id_petugas."'";
 		$data = $this->db->query($sql); 
 
 		return $data->row();
@@ -51,22 +51,22 @@ class M_petugas extends CI_Model {
 		return $data->num_rows();
 	}
 
-	public function cek_NIK_edit($NIK, $id){
-		$sql = "SELECT penduduk.NIK, nama FROM petugas JOIN penduduk WHERE petugas.NIK=penduduk.NIK AND id !='{$id}' AND petugas.NIK = '".$NIK."'";
+	public function cek_NIK_edit($NIK, $id_petugas){
+		$sql = "SELECT penduduk.NIK, nama FROM petugas JOIN penduduk WHERE petugas.NIK=penduduk.NIK AND id !='{$id_petugas}' AND petugas.NIK = '".$NIK."'";
 		$data = $this->db->query($sql); 
 
 		return $data->row();
 	}
 
-	public function cek_username_edit($username, $id){
-		$sql = "SELECT username FROM petugas WHERE username = '{$username}' AND id !='{$id}'";
+	public function cek_username_edit($username, $id_petugas){
+		$sql = "SELECT username FROM petugas WHERE username = '{$username}' AND id !='{$id_petugas}'";
 		$data = $this->db->query($sql); 
 
 		return $data->num_rows();
 	}
 
-	public function reset($id, $password){
-		$sql = "UPDATE petugas SET password = '{$password}' WHERE id = '".$id."'";
+	public function reset($id_petugas, $password){
+		$sql = "UPDATE petugas SET password = '{$password}' WHERE id = '".$id_petugas."'";
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();

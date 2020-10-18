@@ -72,10 +72,10 @@ class M_penduduk extends CI_Model {
 
 	public function select_anggota_keluarga($no_kk){
 		$sql = "SELECT * FROM penduduk WHERE NOT EXISTS ( 
-												SELECT nik_kepala_keluarga
-												FROM kartu_keluarga
-												WHERE penduduk.NIK = kartu_keluarga.nik_kepala_keluarga )
-										AND no_kk ='{$no_kk}'";
+						SELECT nik_kepala_keluarga
+						FROM kartu_keluarga
+						WHERE penduduk.NIK = kartu_keluarga.nik_kepala_keluarga )
+				AND no_kk ='{$no_kk}'";
 		$data = $this->db->query($sql); 
 
 		return $data->result();
@@ -96,7 +96,6 @@ class M_penduduk extends CI_Model {
 			$this->db->query($sql);
 		}
 		
-
 		$this->db->trans_complete();
 
 		if ($this->db->trans_status()==FALSE) {
