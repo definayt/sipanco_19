@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once("application/core/AUTH_Controller.php");
 class Penduduk extends AUTH_Controller {
 
 	/**
@@ -48,22 +47,17 @@ class Penduduk extends AUTH_Controller {
 		$this->load->view('form_tambah_penduduk', $data);
 	}
 
-	public function proses_tambah_kk($value=''){
-		// $this->form_validation->set_rules('no_kk', 'Nomor KK', 'trim|required');
+	public function proses_tambah_kk(){
 		$data 	= $this->input->post();
 
-		// if ($this->form_validation->run() == TRUE) {
+		$result = $this->M_penduduk->insert($data);
 
-			$result = $this->M_penduduk->insert($data);
-
-			if ($result == TRUE) {
-				$this->session->set_flashdata('msg', show_succ_msg('KK Berhasil Ditambahkan'));
-				redirect('Penduduk');
-			} else {
-				$this->session->set_flashdata('msg', show_err_msg('KK Gagal Ditambahkan'));
-				redirect('Penduduk');
-			}
-		// }
+		if ($result == TRUE) {
+			$this->session->set_flashdata('msg', show_succ_msg('KK Berhasil Ditambahkan'));
+			redirect('Penduduk');
+		}
+		$this->session->set_flashdata('msg', show_err_msg('KK Gagal Ditambahkan'));
+		redirect('Penduduk');
 	}
 
 	public function lihat_detail_kk($no_kk){
@@ -113,9 +107,7 @@ class Penduduk extends AUTH_Controller {
 		}
 	}
 
-	public function hapus($input){
-		$data['userdata'] 		= $this->userdata;		
-		
+	public function hapus($input){		
 		$result = $this->M_penduduk->hapus($input);
 		
 		if ($result == TRUE) {
@@ -127,8 +119,6 @@ class Penduduk extends AUTH_Controller {
 	}
 
 	public function hapus_anggota($input){
-		$data['userdata'] 		= $this->userdata;		
-
 		$datainput = explode('_', $input);
 		
 		$result = $this->M_penduduk->hapus_anggota($datainput[0]);
@@ -142,7 +132,6 @@ class Penduduk extends AUTH_Controller {
 	}
 
 	public function hapus_penduduk($NIK){
-		$data['userdata'] 		= $this->userdata;		
 		
 		$result = $this->M_penduduk->hapus_penduduk($NIK);
 		
@@ -192,7 +181,6 @@ class Penduduk extends AUTH_Controller {
         );
 
         // load library extension class Cezpdf
-        // lokasi: ./application/libraries/Pdf.php
         $this->load->library('Pdf', $parameters);
 
         // pastikan path font benar
@@ -207,26 +195,25 @@ class Penduduk extends AUTH_Controller {
         $this->pdf->ezSetCmMargins(3, 3, 3, 3);
 
         // jalankan query
-
         $data_kk = $this->M_penduduk->select_all_kk();
-        $j=1;
+        $j_iterator=1;
         foreach ($data_kk as $kk) {
         	if($kk->no_kk != ''){
-        		$this->pdf->ezText($j.".\t\tNomor KK \t\t\t\t\t\t\t\t\t\t:\t".$kk->no_kk,11,array('justification'=>'left','aleft'=>'70'));
+        		$this->pdf->ezText($j_iterator.".\t\tNomor KK \t\t\t\t\t\t\t\t\t\t:\t".$kk->no_kk,11,array('justification'=>'left','aleft'=>'70'));
 	            $this->pdf->ezText("\t\t\t\t\tKepala Keluarga :\t".$kk->nama,11,array('justification'=>'left','aleft'=>'70'));
 	            $this->pdf->ezSetDy(-8);          
 	            
 	            $query = $this->M_penduduk->select_penduduk_by_no_kk($kk->no_kk);
 
 		        // persiapkan data (array) untuk tabel pdf
-		        $no = 0;
-		        $i = 0;
+		        $nom = 0;
+		        $i_iterator = 0;
 		        $data_penduduk=array();
 		        foreach ($query as $key => $value) {
 		            // jangan ganti urutan 3 baris ini, atau nomor tidak tampil
 		            $data_penduduk[$key] = $value;
-		            $data_penduduk[$i]['no']= ++$no;
-		            $i++;
+		            $data_penduduk[$i_iterator]['no']= ++$nom;
+		            $i_iterator++;
 		        }
 
 		        // header tabel pdf
@@ -242,19 +229,16 @@ class Penduduk extends AUTH_Controller {
 			        'xPos'=>85,'xOrientation'=>'right'
 
 			       );
-		        $this->pdf->ezTable($data_penduduk, $column_header,$title='',$options);
+		        $this->pdf->ezTable($data_penduduk, $column_header,'',$options);
 		        $this->pdf->ezSetDy(-15);
-		        $j++;
+		        $j_iterator++;
 		        
         	}
             
         }
-        
-
         $nama_file = 'Data Warga RT 05 RW VII Kelurahan Genuk.pdf';
 
         // force download, nama file sesuai dengan $nama_file
         $this->pdf->ezStream(array('Content-Disposition'=>$nama_file));
-    
 	}
 }
