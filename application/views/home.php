@@ -4,22 +4,22 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="<?=base_url(); ?>assets/image/favicon.png" type="image/png">
+        <link rel="icon" href="<?php echo esc_url(base_url()); ?>assets/image/favicon.png" type="image/png">
         <title>SIPANCO-19</title>
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.css">
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/linericon/style.css">
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/css/bootstrap.css">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/vendors/linericon/style.css">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/vendors/owl-carousel/owl.carousel.min.css">
         <!-- main css -->
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/css/style.css">
         
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/css/responsive.css">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/css/responsive.css">
 
-        <link rel="stylesheet" href="<?= base_url(); ?>assets/scss/_elements.scss">
+        <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets/scss/_elements.scss">
     </head>
     <body>
         <!--================Header Area =================-->
@@ -27,7 +27,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="<?= base_url(); ?>"><img src="<?= base_url(); ?>/assets/image/Logo.png" alt=""></a>
+                    <a class="navbar-brand logo_h" href="<?php echo esc_url(base_url()); ?>"><img src="<?php echo esc_url(base_url()); ?>/assets/image/Logo.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -36,26 +36,23 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="<?= base_url(); ?>">Halaman Utama</a></li> 
+                            <li class="nav-item active"><a class="nav-link" href="<?php echo esc_url(base_url()); ?>">Halaman Utama</a></li> 
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lapor</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="<?= base_url('Lapor'); ?>">Perjalanan Antar Kota</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="<?= base_url('Lapor/luar_negeri'); ?>">Perjalanan Luar Negeri</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<?php echo esc_url(base_url('Lapor')); ?>">Perjalanan Antar Kota</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<?php echo esc_url(base_url('Lapor/luar_negeri')); ?>">Perjalanan Luar Negeri</a></li>
                                 </ul>
                             </li> 
-                            <li class="nav-item"><a class="nav-link" href="<?= base_url('Tutorial'); ?>">Tutorial</a></li>
-                            <li class="nav-item"><a class="nav-link" href="<?= base_url('Galeri'); ?>">Galeri</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url(base_url('Tutorial')); ?>">Tutorial</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo esc_url(base_url('Galeri')); ?>">Galeri</a></li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="<?= base_url('Login'); ?>" target="_blank">Login</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="<?= base_url('Dashboard'); ?>" target="_blank">Dashboard</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<?php echo esc_url(base_url('Login')); ?>" target="_blank">Login</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<?php echo esc_url(base_url('Dashboard')); ?>" target="_blank">Dashboard</a></li>
                                 </ul>
                             </li>
-                            
-                            <!-- <li class="nav-item"><a class="nav-link" href="elements.html">Elemests</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
                         </ul>
                     </div> 
                 </nav>
@@ -74,15 +71,15 @@
 						<h4>Sistem Informasi Pelaporan dan Pemantauan Pasca Bepergian Selama Pandemi COVID-19</h4>
                         <h4>Kenangasari RT 05/RW VII Kelurahan Genuk</h4>
                         <div class="button-group-area mt-40">
-    						<a href="<?= base_url('Lapor')?>" class="btn theme_btn button_hover">LAPOR Perjalanan Antar Kota</a>
+    						<a href="<?php echo esc_url(base_url('Lapor'))?>" class="btn theme_btn button_hover">LAPOR Perjalanan Antar Kota</a>
                             <br><br>
-                            <a href="<?= base_url('Lapor/luar_negeri')?>" class="btn theme_btn button_hover">LAPOR Perjalanan Luar Negeri</a>
+                            <a href="<?php echo esc_url(base_url('Lapor/luar_negeri'))?>" class="btn theme_btn button_hover">LAPOR Perjalanan Luar Negeri</a>
                         </div>
 					</div>
 				</div>
             </div>
             <div class="hotel_booking_area position">
-                <form id="form_cek_pemantauan" method="POST" action="<?= base_url('Home/cekPemantauan')?>">
+                <form id="form_cek_pemantauan" method="POST" action="<?php echo esc_attr(base_url('Home/cekPemantauan'))?>">
                     <div class="container">
                         <div class="hotel_booking_table">
                             <div class="col-md-5">
@@ -131,11 +128,11 @@
                         <div class="about_content ">
                             <h2 class="title title_color">Tutorial <br>Pelaporan Pasca<br>Aktivitas Bepergian</h2>
                             <p>Untuk mencegah penyebaran virus COVID-19, warga Kenangasari RT 5/RW VII, Kelurahan Genuk wajib melapor kepada petugas RT setempat setelah kembali dari aktivitas bepergian. Aktivitas bepergian yang wajib dilaporkan adalah aktivitas datang dari luar kota dan luar negeri. Langkah yang harus....</p>
-                            <a href="<?= base_url('Tutorial')?>" class="button_hover theme_btn_two">Baca Selengkapnya</a>
+                            <a href="<?php echo esc_url(base_url('Tutorial'))?>" class="button_hover theme_btn_two">Baca Selengkapnya</a>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <img class="img-fluid" src="<?= base_url(); ?>/assets/image/trip.gif" alt="img">
+                        <img class="img-fluid" src="<?php echo esc_url(base_url()); ?>/assets/image/trip.gif" alt="img">
                     </div>
                 </div>
             </div>
@@ -153,27 +150,27 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-recent-blog-post">
                             <div class="thumb">
-                                <img class="img-fluid" src="<?= base_url(); ?>/assets/image/gallery/gallery_01.jpeg" alt="post">
+                                <img class="img-fluid" src="<?php echo esc_url(base_url()); ?>/assets/image/gallery/gallery_01.jpeg" alt="post">
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="single-recent-blog-post">
                             <div class="thumb">
-                                <img class="img-fluid" src="<?= base_url(); ?>/assets/image/gallery/gallery_02.jpeg" alt="post">
+                                <img class="img-fluid" src="<?php echo esc_url(base_url()); ?>/assets/image/gallery/gallery_02.jpeg" alt="post">
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="single-recent-blog-post">
                             <div class="thumb">
-                                <img class="img-fluid" src="<?= base_url(); ?>/assets/image/gallery/gallery_03.jpeg" alt="post">
+                                <img class="img-fluid" src="<?php echo esc_url(base_url()); ?>/assets/image/gallery/gallery_03.jpeg" alt="post">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div style="padding-top: 20px" class="text-center">
-                    <a href="<?= base_url('Galeri')?>" class="button_hover theme_btn_two">Lihat Foto Lainnya</a>
+                    <a href="<?php echo esc_url(base_url('Galeri'))?>" class="button_hover theme_btn_two">Lihat Foto Lainnya</a>
                 </div>
             </div>
         </section>
@@ -211,21 +208,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> KKN T
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="<?= base_url(); ?>assets/js/jquery-3.2.1.min.js"></script>
-        <script src="<?= base_url(); ?>assets/js/popper.js"></script>
-        <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
-        <script src="<?= base_url(); ?>assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-        <!--  -->
-        <script src="<?= base_url(); ?>assets/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
-        <script src="<?= base_url(); ?>assets/vendors/nice-select/js/jquery.nice-select.js"></script>
-        
-        <script src="<?= base_url(); ?>assets/js/stellar.js"></script>
-        <script src="<?= base_url(); ?>assets/vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/js/jquery-3.2.1.min.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/js/jquery-3.2.1.min.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/js/popper.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/js/mail-script.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/vendors/nice-select/js/jquery.nice-select.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/js/mail-script.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/js/stellar.js"></script>
+        <script src="<?php echo esc_url(base_url()); ?>assets/vendors/lightbox/simpleLightbox.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        <script src="<?= base_url(); ?>assets/js/custom.js"></script>
-        
-        <?php include './assets/js/ajax.php'; ?>
-        
+        <script src="<?php echo esc_url(base_url()); ?>assets/js/custom.js"></script>      
 
         <script type="text/javascript">
             function isNumber(evt) {
