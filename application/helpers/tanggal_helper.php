@@ -69,8 +69,8 @@ if (!function_exists('bulan')) {
  * @return string format tanggal sekarang (contoh: 22 Desember 2016)
  */
 if (!function_exists('tanggal')) {
-    function tanggal($d, $m, $y) {
-        $tanggal = $d . " " .bulan($m). " ".$y;
+    function tanggal($date, $month, $year) {
+        $tanggal = $date . " " .bulan($month). " ".$year;
         return $tanggal;
     }
 }
