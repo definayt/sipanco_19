@@ -46,13 +46,13 @@
 	}
 
 	// MODAL
-	function show_my_modal($content='', $id='', $data='', $size='md') {
+	function show_my_modal($content='', $id_modal='', $data='', $size='md') {
 		$_ci = &get_instance();
 
 		if ($content != '') {
 			$view_content = $_ci->load->view($content, $data, TRUE);
 
-			return '<div class="modal fade" id="' .$id .'" role="dialog">
+			return '<div class="modal fade" id="' .$id_modal .'" role="dialog">
 					  <div class="modal-dialog modal-' .$size .'" role="document">
 					    <div class="modal-content">
 					        ' .$view_content .'
@@ -62,21 +62,21 @@
 		}
 	}
 
-	function show_my_confirm($id='', $class='', $title='Konfirmasi', $yes = 'Ya', $no = 'Tidak') {
+	function show_my_confirm($id_confirm='', $class='', $title='Konfirmasi', $yes = 'Ya', $no = 'Tidak') {
 		$_ci = &get_instance();
 
-		if ($id != '') {
-			echo   '<div class="modal fade" id="' .$id .'" role="dialog">
+		if ($id_confirm != '') {
+			echo   '<div class="modal fade" id="' .esc_attr($id_confirm) .'" role="dialog">
 					  <div class="modal-dialog modal-md" role="document">
 					    <div class="modal-content">
 					        <div class="col-md-offset-1 col-md-10 col-md-offset-1 well">
-						      <h3 style="display:block; text-align:center;">' .$title .'</h3>
+						      <h3 style="display:block; text-align:center;">' .esc_html($title) .'</h3>
 						      
 						      <div class="col-md-6">
-						        <button class="form-control btn btn-primary ' .$class .'"> <i class="glyphicon glyphicon-ok-sign"></i> ' .$yes .'</button>
+						        <button class="form-control btn btn-primary ' .esc_attr($class) .'"> <i class="glyphicon glyphicon-ok-sign"></i> ' .esc_html($yes) .'</button>
 						      </div>
 						      <div class="col-md-6">
-						        <button class="form-control btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> ' .$no .'</button>
+						        <button class="form-control btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> ' .esc_html($no) .'</button>
 						      </div>
 						    </div>
 					    </div>
@@ -85,19 +85,19 @@
 		}
 	}
 
-	function show_alert($id='', $class='', $title='Konfirmasi', $yes = 'OK') {
+	function show_alert($id_alert='', '', $title='Konfirmasi', $yes = 'OK') {
 		$_ci = &get_instance();
 
-		if ($id != '') {
-			echo   '<div class="modal fade" id="' .$id .'" role="dialog">
+		if ($id_alert != '') {
+			echo   '<div class="modal fade" id="' .$id_alert .'" role="dialog">
 					  <div class="modal-dialog modal-md" role="document">
 					    <div class="modal-content">
 					        <div class="col-md-offset-1 col-md-10 col-md-offset-1 well">
-						      <h4 style="display:block; text-align:center;">' .$title .'</h4>
+						      <h4 style="display:block; text-align:center;">' .esc_html($title) .'</h4>
 						      
 						      
 						      <div class="col-md-12">
-						        <button class="form-control btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> ' .$yes .'</button>
+						        <button class="form-control btn btn-danger" data-dismiss="modal"> <i class="glyphicon glyphicon-remove-sign"></i> ' .esc_html($yes) .'</button>
 						      </div>
 						    </div>
 					    </div>
@@ -107,26 +107,12 @@
 	}
 
 	function find_bulan($array_bulan, $id_bulan){
-		$id=999;
+		$hasil=999;
 		foreach ($array_bulan->result() as $bulan) {
 			if ($bulan->id_bulan == $id_bulan) {
-				$id = $bulan->id_bulan;
+				$hasil = $bulan->id_bulan;
 			}
 		}
-		return $id;
-	}
-
-	function find_NIP($string_NIP, $NIP){
-		$array_NIP = explode('_', $string_NIP);
-
-		$ret = FALSE;
-		for ($i=0; $i < sizeof($array_NIP); $i++) { 
-			if($array_NIP[$i] == $NIP){
-				$ret = TRUE;
-			}
-		}
-
-		return $ret;
-		
+		return $hasil;
 	}
 ?>
