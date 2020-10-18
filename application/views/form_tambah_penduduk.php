@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>SIPANCO-19 Admin</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="<?= base_url(); ?>assets_admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>assets_admin/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets_admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets_admin/vendors/css/vendor.bundle.base.css">
 
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="<?= base_url(); ?>assets_admin/css/style.css">
+  <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets_admin/css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?= base_url(); ?>assets_admin/images/favicon.png" />
+  <link rel="shortcut icon" href="<?php echo esc_url(base_url()); ?>assets_admin/images/favicon.png" />
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
@@ -27,8 +27,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="<?= base_url('Dashboard'); ?>"><img src="<?= base_url(); ?>assets_admin/images/logo_admin.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="<?= base_url('Dashboard'); ?>"><img src="<?= base_url(); ?>assets_admin/images/favicon.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="<?php echo esc_url(base_url('Dashboard')); ?>"><img src="<?php echo esc_url(base_url()); ?>assets_admin/images/logo_admin.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="<?php echo esc_url(base_url('Dashboard')); ?>"><img src="<?php echo esc_url(base_url()); ?>assets_admin/images/favicon.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <ul class="navbar-nav navbar-nav-right">
@@ -40,15 +40,15 @@
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <div class="nav-profile-img">
-                <img src="<?= base_url(); ?>assets_admin/images/user.png" alt="image">
+                <img src="<?php echo esc_url(base_url()); ?>assets_admin/images/user.png" alt="image">
                 <span class="availability-status online"></span>             
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black"><?= $userdata->nama?></p>
+                <p class="mb-1 text-black"><?php echo esc_html($userdata->nama)?></p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="<?= base_url('Profil')?>">
+              <a class="dropdown-item" href="<?php echo esc_url(base_url('Profil'))?>">
                 <i class="mdi mdi-account-settings mr-2 text-success"></i>
                 Profil
               </a>
@@ -74,25 +74,25 @@
           <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
               <div class="nav-profile-image">
-                <img src="<?= base_url(); ?>assets_admin/images/user.png" alt="profile">
+                <img src="<?php echo esc_url(base_url()); ?>assets_admin/images/user.png" alt="profile">
                 <span class="login-status online"></span> <!--change to offline or busy as needed-->              
               </div>
               <div class="nav-profile-text d-flex flex-column">
                 <?php $name = explode(" ", $userdata->nama);?> 
-                <span class="font-weight-bold mb-2"><?= $name[0]?></span>
-                <span class="text-secondary text-small"><?=$userdata->username?></span>
+                <span class="font-weight-bold mb-2"><?php echo esc_html($name[0])?></span>
+                <span class="text-secondary text-small"><?php echo esc_html($userdata->username)?></span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url()?>" target="_blank">
+            <a class="nav-link" href="<?php echo esc_url(base_url())?>" target="_blank">
               <span class="menu-title">SIPANCO-19</span>
               <i class="mdi mdi-white-balance-sunny menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('Dashboard')?>">
+            <a class="nav-link" href="<?php echo esc_url(base_url('Dashboard'))?>">
               <span class="menu-title">Dashboard</span>
               <i class="mdi mdi-home menu-icon"></i>
             </a>
@@ -105,8 +105,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('Penduduk/kk')?>">Data KK</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('Penduduk/all')?>">Data Seluruh Penduduk</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo esc_url(base_url('Penduduk/kk'))?>">Data KK</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo esc_url(base_url('Penduduk/all'))?>">Data Seluruh Penduduk</a></li>
               </ul>
             </div>
           </li>
@@ -118,13 +118,13 @@
             </a>
             <div class="collapse" id="general-pages">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('Pelaporan/dalam_negeri')?>">Antar Kota</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('Pelaporan/luar_negeri')?>">Luar Negeri</a></li>                
+                <li class="nav-item"> <a class="nav-link" href="<?php echo esc_url(base_url('Pelaporan/dalam_negeri'))?>">Antar Kota</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo esc_url(base_url('Pelaporan/luar_negeri'))?>">Luar Negeri</a></li>                
               </ul>
               </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('Petugas')?>">
+            <a class="nav-link" href="<?php echo esc_url(base_url('Petugas'))?>">
               <span class="menu-title">Petugas RT</span>
               <i class="mdi mdi-contacts menu-icon"></i>
             </a>
@@ -155,11 +155,7 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                 <!--  <h4 class="card-title">Basic form elements</h4>
-                  <p class="card-description">
-                    Basic form elements
-                  </p> -->
-                  <form class="forms-sample" method="post" id="form_profil" action="<?= base_url('Penduduk/proses_tambah_kk')?>">
+                  <form class="forms-sample" method="post" id="form_profil" action="<?php echo esc_attr(base_url('Penduduk/proses_tambah_kk'))?>">
                     <div class="form-group">
                       <label for="no_kk">Nomor KK</label>
                       <input type="text" class="form-control" id="nomorKK" name="no_kk" placeholder="Nomor KK" onkeypress="return isNumber(event)" required="true" minlength="16" maxlength="16">
@@ -179,7 +175,7 @@
                     <div id="container"></div>
                     
                     <button type="submit" name="button_tambah_kk" class="btn btn-gradient-primary mr-2">Tambah Data</button>
-                    <a href="<?= base_url('Penduduk/kk')?>" class="btn btn-gradient-danger">Batal</a>
+                    <a href="<?php echo esc_url(base_url('Penduduk/kk'))?>" class="btn btn-gradient-danger">Batal</a>
                   </form>
                 </div>
               </div>
@@ -210,23 +206,23 @@
           </div>
           <div class="modal-footer">
                 <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Batal</button>
-                <a href="<?= base_url('Login/logout')?>" class="btn btn-info">Ya, Logout</a>
+                <a href="<?php echo esc_url(base_url('Login/logout'))?>" class="btn btn-info">Ya, Logout</a>
             </div>
         </div>
       </div>
   </div>
   <!-- plugins:js -->
-  <script src="<?= base_url(); ?>assets_admin/vendors/js/vendor.bundle.base.js"></script>
-  <script src="<?= base_url(); ?>assets_admin/vendors/js/vendor.bundle.addons.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/vendors/js/vendor.bundle.base.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="<?= base_url(); ?>assets_admin/js/off-canvas.js"></script>
-  <script src="<?= base_url(); ?>assets_admin/js/misc.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/js/off-canvas.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="<?= base_url(); ?>assets_admin/js/dashboard.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/js/dashboard.js"></script>
 
   <!-- End custom js for this page-->
   <script src="https://code.jquery.com/jquery-3.5.1.js"type="text/javascript"></script>

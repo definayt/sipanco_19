@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>SIPANCO-19 Admin</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="<?= base_url(); ?>assets_admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>assets_admin/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets_admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets_admin/vendors/css/vendor.bundle.base.css">
 
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="<?= base_url(); ?>assets_admin/css/style.css">
+  <link rel="stylesheet" href="<?php echo esc_url(base_url()); ?>assets_admin/css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?= base_url(); ?>assets_admin/images/favicon.png" />
+  <link rel="shortcut icon" href="<?php echo esc_url(base_url()); ?>assets_admin/images/favicon.png" />
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.bootstrap4.min.css">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"> -->
-
 </head>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="<?= base_url('Dashboard'); ?>"><img src="<?= base_url(); ?>assets_admin/images/logo_admin.png" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="<?= base_url('Dashboard'); ?>"><img src="<?= base_url(); ?>assets_admin/images/favicon.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="<?php echo esc_url(base_url('Dashboard')); ?>"><img src="<?php echo esc_url(base_url()); ?>assets_admin/images/logo_admin.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="<?php echo esc_url(base_url('Dashboard')); ?>"><img src="<?php echo esc_url(base_url()); ?>assets_admin/images/favicon.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <ul class="navbar-nav navbar-nav-right">
@@ -41,15 +38,15 @@
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <div class="nav-profile-img">
-                <img src="<?= base_url(); ?>assets_admin/images/user.png" alt="image">
+                <img src="<?php echo esc_url(base_url()); ?>assets_admin/images/user.png" alt="image">
                 <span class="availability-status online"></span>             
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black"><?= $userdata->nama?></p>
+                <p class="mb-1 text-black"><?php echo esc_html($userdata->nama)?></p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="<?= base_url('Profil')?>">
+              <a class="dropdown-item" href="<?php echo esc_url(base_url('Profil'))?>">
                 <i class="mdi mdi-account-settings mr-2 text-success"></i>
                 Profil
               </a>
@@ -60,7 +57,6 @@
               </a>
             </div>
           </li>
-          
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
@@ -75,25 +71,25 @@
           <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
               <div class="nav-profile-image">
-                <img src="<?= base_url(); ?>assets_admin/images/user.png" alt="profile">
+                <img src="<?php echo esc_url(base_url()); ?>assets_admin/images/user.png" alt="profile">
                 <span class="login-status online"></span> <!--change to offline or busy as needed-->              
               </div>
               <div class="nav-profile-text d-flex flex-column">
                 <?php $name = explode(" ", $userdata->nama);?> 
-                <span class="font-weight-bold mb-2"><?= $name[0]?></span>
-                <span class="text-secondary text-small"><?=$userdata->username?></span>
+                <span class="font-weight-bold mb-2"><?php echo esc_html($name[0])?></span>
+                <span class="text-secondary text-small"><?php echo esc_html($userdata->username)?></span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url()?>" target="_blank">
+            <a class="nav-link" href="<?php echo esc_url(base_url())?>" target="_blank">
               <span class="menu-title">SIPANCO-19</span>
               <i class="mdi mdi-white-balance-sunny menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('Dashboard')?>">
+            <a class="nav-link" href="<?php echo esc_url(base_url('Dashboard'))?>">
               <span class="menu-title">Dashboard</span>
               <i class="mdi mdi-home menu-icon"></i>
             </a>
@@ -106,8 +102,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('Penduduk/kk')?>">Data KK</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('Penduduk/all')?>">Data Seluruh Penduduk</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo esc_url(base_url('Penduduk/kk'))?>">Data KK</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo esc_url(base_url('Penduduk/all'))?>">Data Seluruh Penduduk</a></li>
               </ul>
             </div>
           </li>
@@ -119,13 +115,13 @@
             </a>
             <div class="collapse" id="general-pages">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('Pelaporan/dalam_negeri')?>">Antar Kota</a></li>
-                <li class="nav-item"> <a class="nav-link" href="<?= base_url('Pelaporan/luar_negeri')?>">Luar Negeri</a></li>                
+                <li class="nav-item"> <a class="nav-link" href="<?php echo esc_url(base_url('Pelaporan/dalam_negeri'))?>">Antar Kota</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo esc_url(base_url('Pelaporan/luar_negeri'))?>">Luar Negeri</a></li>                
               </ul>
               </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('Petugas')?>">
+            <a class="nav-link" href="<?php echo esc_url(base_url('Petugas'))?>">
               <span class="menu-title">Petugas RT</span>
               <i class="mdi mdi-contacts menu-icon"></i>
             </a>
@@ -163,7 +159,7 @@
                   </p>
                   <a onclick="myFunction()" href="#">   
                     <div id="myDIV">
-                      <?php echo show_msg($this->session->flashdata('msg'));?>
+                      <?php echo esc_html(show_msg($this->session->flashdata('msg')));?>
                     </div>
                   </a>
                   <table class="table table-striped" id="tabel-data">
@@ -181,20 +177,20 @@
                         $no = 1;
                         foreach ($pelaporan_luar_negeri as $pelaporan){?>
                           <tr>
-                            <td><?= $no?></td>
-                            <td><?= $pelaporan->nama?></td>
-                          
+                            <td><?php echo esc_html($no)?></td>
+                            <td><?php echo esc_html($pelaporan->nama)?></td>
+                           
                             
                             <?php if($pelaporan->country_name == "Indonesia"){?>
-                              <td><?= $pelaporan->provinsi.', '.$pelaporan->kota_kabupaten?></td>
+                              <td><?php echo esc_html($pelaporan->provinsi.', '.$pelaporan->kota_kabupaten)?></td>
                             <?php }else{?>
-                              <td><?= $pelaporan->country_name?></td>
+                              <td><?php echo esc_html($pelaporan->country_name)?></td>
                             <?php }?>
                             
                          <?php 
-                              $tanggal_mulai = tanggal(intval($pelaporan->tanggal_mulai[8].$pelaporan->tanggal_mulai[9]), intval($pelaporan->tanggal_mulai[5].$pelaporan->tanggal_mulai[6]), intval($pelaporan->tanggal_mulai[0].$pelaporan->tanggal_mulai[1].$pelaporan->tanggal_mulai[2].$pelaporan->tanggal_mulai[3])); 
+                              $tanggal_mulai = tanggal(int($pelaporan->tanggal_mulai[8].$pelaporan->tanggal_mulai[9]), int($pelaporan->tanggal_mulai[5].$pelaporan->tanggal_mulai[6]), int($pelaporan->tanggal_mulai[0].$pelaporan->tanggal_mulai[1].$pelaporan->tanggal_mulai[2].$pelaporan->tanggal_mulai[3])); 
 
-                              $tanggal_selesai = tanggal(intval($pelaporan->tanggal_selesai[8].$pelaporan->tanggal_selesai[9]), intval($pelaporan->tanggal_selesai[5].$pelaporan->tanggal_selesai[6]), intval($pelaporan->tanggal_selesai[0].$pelaporan->tanggal_selesai[1].$pelaporan->tanggal_selesai[2].$pelaporan->tanggal_selesai[3])); 
+                              $tanggal_selesai = tanggal(int($pelaporan->tanggal_selesai[8].$pelaporan->tanggal_selesai[9]), int($pelaporan->tanggal_selesai[5].$pelaporan->tanggal_selesai[6]), int($pelaporan->tanggal_selesai[0].$pelaporan->tanggal_selesai[1].$pelaporan->tanggal_selesai[2].$pelaporan->tanggal_selesai[3])); 
 
                             ?>
                             
@@ -202,22 +198,22 @@
                               $pemantauan = 'Pemantauan Hari Ke-'.$pelaporan->pemantauan;
                               $sisa = $pelaporan->sisa;
                               ?>
-                              <td><label class="badge badge-danger"><?= $pemantauan?></td>
+                              <td><label class="badge badge-danger"><?php echo esc_html($pemantauan)?></td>
                             <?php }else{
                               $pemantauan = 'Selesai Pemantauan';
                               $sisa = "0";
                               ?>
-                              <td><label class="badge badge-success"><?= $pemantauan?></td>
+                              <td><label class="badge badge-success"><?php echo esc_html($pemantauan)?></td>
                             <?php }?>
                             <td>
                               
                               <button type="button" class="btn btn-gradient-success btn-rounded btn-icon detail-pelaporan" data-toggle="modal" data-target="#modal_detail"
-                              id="<?php echo $pelaporan->id_pelaporan.'|'.$pelaporan->nama.'|'.$pelaporan->status.'|'.$pelaporan->country_name.'|'.$pelaporan->provinsi.'|'.$pelaporan->kota_kabupaten.'|'.$tanggal_mulai.'|'.$tanggal_selesai.'|'.$pemantauan.'|'.$sisa ?>"
+                              id="<?php echo esc_attr($pelaporan->id_pelaporan.'|'.$pelaporan->nama.'|'.$pelaporan->status.'|'.$pelaporan->country_name.'|'.$pelaporan->provinsi.'|'.$pelaporan->kota_kabupaten.'|'.$tanggal_mulai.'|'.$tanggal_selesai.'|'.$pemantauan.'|'.$sisa) ?>"
                               >
                                 <i class="mdi mdi-eye"></i>
                               </button>
 
-                              <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon" data-toggle="modal" data-target="#modal_hapus" onclick="deletePelaporan('<?= base_url('Pelaporan/hapus/'.$pelaporan->id_pelaporan.'_luarnegeri')?>')">
+                              <button type="button" class="btn btn-gradient-danger btn-rounded btn-icon" data-toggle="modal" data-target="#modal_hapus" onclick="deletePelaporan('<?php echo esc_attr(base_url('Pelaporan/hapus/'.$pelaporan->id_pelaporan.'_luarnegeri'))?>')">
                                 <i class="mdi mdi-delete-forever"></i>
                               </button>
                             </td>
@@ -254,7 +250,7 @@
           </div>
           <div class="modal-footer">
                 <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Batal</button>
-                <a href="<?= base_url('Login/logout')?>" class="btn btn-info">Ya, Logout</a>
+                <a href="<?php echo esc_url(base_url('Login/logout'))?>" class="btn btn-info">Ya, Logout</a>
             </div>
         </div>
       </div>
@@ -293,17 +289,17 @@
           </div>
         </div>
   <!-- plugins:js -->
-  <script src="<?= base_url(); ?>assets_admin/vendors/js/vendor.bundle.base.js"></script>
-  <script src="<?= base_url(); ?>assets_admin/vendors/js/vendor.bundle.addons.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/vendors/js/vendor.bundle.base.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="<?= base_url(); ?>assets_admin/js/off-canvas.js"></script>
-  <script src="<?= base_url(); ?>assets_admin/js/misc.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/js/off-canvas.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="<?= base_url(); ?>assets_admin/js/dashboard.js"></script>
+  <script src="<?php echo esc_url(base_url()); ?>assets_admin/js/dashboard.js"></script>
 
   <!-- End custom js for this page-->
   <script src="https://code.jquery.com/jquery-3.5.1.js"type="text/javascript"></script>
@@ -372,17 +368,11 @@
         var datanya = dataPelaporan.split("|");
         // Untuk pengujian data
         if (datanya[2]=='1') { var status='Warga Tetap';} else {var status='Anak Kos/Pendatang';}
-        // bagian ini yang akan ditampilkan pada modal bootstrap
-        // pengetikan HTML tidak boleh dienter, karena oleh javascript akan dibaca \r\n sehingga
-        // modal bootstrap tidak akan jalan
+        
         $("#IsiModal").html('<table class="table"><tr></tr><tr><td width="200">Nomor Pelaporan</td><td width="10">:</td><td>'+datanya[0]+'</td></tr><tr><td>Nama Lengkap</td><td>:</td><td>'+datanya[1]+'</td></tr><tr><td>Jenis Warga</td><td>:</td><td>'+status+'</td></tr><tr><td>Riwayat Bepergian</td><td>:</td><td>'+datanya[3]+'</td></tr><tr><td>Tanggal Kedatangan ke Wilayah RT 05</td><td>:</td><td>'+datanya[6]+'</td></tr><tr><td>Tanggal Selesai Pemantauan</td><td>:</td><td>'+datanya[7]+'</td></tr><tr><td>Status</td><td>:</td><td>'+datanya[8]+'</td></tr><tr><td>Sisa Hari Pemantauan</td><td>:</td><td>'+datanya[9]+' Hari</td></tr></table>');
         });
    
     });
-    
   </script>
-
-  
 </body>
-
 </html>
