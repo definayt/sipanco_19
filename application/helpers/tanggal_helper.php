@@ -16,8 +16,8 @@
  */
 if (!function_exists('bulan')) {
     function bulan($bulan){
-        // $bulan = Date('m');
-        switch ($bulan) {
+        if ($bulan <= 6) {
+            switch ($bulan) {
             case 1:
                 $bulan = "Januari";
                 break;
@@ -36,6 +36,9 @@ if (!function_exists('bulan')) {
             case 6:
                 $bulan = "Juni";
                 break;
+            }
+        }else{
+            switch ($bulan) {
             case 7:
                 $bulan = "Juli";
                 break;
@@ -54,11 +57,9 @@ if (!function_exists('bulan')) {
             case 12:
                 $bulan = "Desember";
                 break;
-
-            default:
-                $bulan = Date('F');
-                break;
+            }
         }
+        
         return $bulan;
     }
 }
