@@ -16,47 +16,24 @@
  */
 if (!function_exists('bulan')) {
     function bulan($bulan){
-        switch ($bulan) {
-            case 1:
-                $bulan = "Januari";
-                break;
-            case 2:
-                $bulan = "Februari";
-                break;
-            case 3:
-                $bulan = "Maret";
-                break;
-            case 4:
-                $bulan = "April";
-                break;
-            case 5:
-                $bulan = "Mei";
-                break;
-            case 6:
-                $bulan = "Juni";
-                break;
-            switch ($bulan) {
-            case 7:
-                $bulan = "Juli";
-                break;
-            case 8:
-                $bulan = "Agustus";
-                break;
-            case 9:
-                $bulan = "September";
-                break;
-            case 10:
-                $bulan = "Oktober";
-                break;
-            case 11:
-                $bulan = "November";
-                break;
-            case 12:
-                $bulan = "Desember";
-                break;
-            default:
-                $bulan = date('F');
-                break;            
+       $array_bulan = [
+                        1 => 'Januari',
+                        2 => 'Februari',
+                        3 => 'Maret',
+                        4 => 'April',
+                        5 => 'Mei',
+                        6 => 'Juni',
+                        7 => 'Juli',
+                        8 => 'Agustus',
+                        9 => 'September',
+                        10 => 'Oktober',
+                        11 => 'November',
+                        12 => 'Desember'
+                    ];
+        foreach ($array_bulan as $bln => $nama_bulan) {
+            if($bln == $bulan){
+                $bulan = $nama_bulan;
+            }
         }
         return $bulan;
     }
